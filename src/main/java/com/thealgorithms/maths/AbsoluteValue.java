@@ -1,6 +1,8 @@
 package com.thealgorithms.maths;
 
-public class AbsoluteValue {
+public final class AbsoluteValue {
+    private AbsoluteValue() {
+    }
 
     /**
      * Returns the absolute value of a number.
@@ -8,7 +10,7 @@ public class AbsoluteValue {
      * @param number The number to be transformed
      * @return The absolute value of the {@code number}
      */
-    public static int getAbsValue(int number) {
-        return number < 0 ? -number : number;
+    public static long getAbsValue(long number) {
+        return Math.abs(number);
     }
 }

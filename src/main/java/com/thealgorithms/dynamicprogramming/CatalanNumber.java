@@ -1,16 +1,17 @@
 package com.thealgorithms.dynamicprogramming;
 
+import java.util.Scanner;
 /**
  * This file contains an implementation of finding the nth CATALAN NUMBER using
- * dynamic programming Wikipedia: https://en.wikipedia.org/wiki/Catalan_number
+ * dynamic programming : <a href="https://en.wikipedia.org/wiki/Catalan_number">Wikipedia</a>
  *
  * Time Complexity: O(n^2) Space Complexity: O(n)
  *
- * @author AMRITESH ANAND (https://github.com/amritesh19)
+ * @author <a href="https://github.com/amritesh19">AMRITESH ANAND</a>
  */
-import java.util.Scanner;
-
-public class CatalanNumber {
+public final class CatalanNumber {
+    private CatalanNumber() {
+    }
 
     /**
      * This method finds the nth Catalan number
@@ -20,8 +21,16 @@ public class CatalanNumber {
      * n > 50, BigInteger class should be used instead long
      *
      * @return catalanArray[n] the nth Catalan number
+     * @throws IllegalArgumentException if n is negative
      */
     static long findNthCatalan(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("n must be non-negative");
+        }
+        if (n <= 1) {
+            return 1;
+        }
+
         // Array to store the results of subproblems i.e Catalan numbers from [1...n-1]
         long[] catalanArray = new long[n + 1];
 
@@ -29,7 +38,7 @@ public class CatalanNumber {
         catalanArray[0] = 1;
         catalanArray[1] = 1;
 
-        /**
+        /*
          * The Catalan numbers satisfy the recurrence relation C₀=1 and Cn = Σ
          * (Ci * Cn-1-i), i = 0 to n-1 , n > 0
          */

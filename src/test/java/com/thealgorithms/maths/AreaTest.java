@@ -1,6 +1,8 @@
 package com.thealgorithms.maths;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +14,11 @@ class AreaTest {
     @Test
     void testSurfaceAreaCube() {
         assertEquals(6.0, Area.surfaceAreaCube(1));
+    }
+
+    @Test
+    void testSurfaceAreaCuboid() {
+        assertEquals(214.0, Area.surfaceAreaCuboid(5, 6, 7));
     }
 
     @Test
@@ -68,6 +75,12 @@ class AreaTest {
     void testAllIllegalInput() {
         assertAll(()
                       -> assertThrows(IllegalArgumentException.class, () -> Area.surfaceAreaCube(0)),
+            ()
+                -> assertThrows(IllegalArgumentException.class, () -> Area.surfaceAreaCuboid(0, 1, 2)),
+            ()
+                -> assertThrows(IllegalArgumentException.class, () -> Area.surfaceAreaCuboid(1, 0, 2)),
+            ()
+                -> assertThrows(IllegalArgumentException.class, () -> Area.surfaceAreaCuboid(1, 2, 0)),
             ()
                 -> assertThrows(IllegalArgumentException.class, () -> Area.surfaceAreaSphere(0)),
             ()

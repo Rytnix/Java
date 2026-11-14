@@ -11,7 +11,9 @@ import java.util.List;
  *
  * */
 
-public class JugglerSequence {
+public final class JugglerSequence {
+    private JugglerSequence() {
+    }
 
     /**
      * This method prints juggler sequence starting with the number in the parameter
@@ -41,7 +43,7 @@ public class JugglerSequence {
             seq.add(n + "");
         }
         String res = String.join(",", seq);
-        System.out.println(res);
+        System.out.print(res + "\n");
     }
 
     // Driver code

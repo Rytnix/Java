@@ -1,6 +1,11 @@
 package com.thealgorithms.datastructures.lists;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -24,6 +29,7 @@ import java.util.stream.IntStream;
  * @param <E> type of elements
  * @see <a href="https://en.wikipedia.org/wiki/Skip_list">Wiki. Skip list</a>
  */
+@SuppressWarnings({"rawtypes", "unchecked"})
 public class SkipList<E extends Comparable<E>> {
 
     /**
@@ -114,6 +120,9 @@ public class SkipList<E extends Comparable<E>> {
             } else {
                 current = next;
             }
+        }
+        if (layer < 0) {
+            return; // not found, nothing to unlink
         }
         for (int i = 0; i <= layer; i++) {
             current.previous(i).setNext(i, current.next(i));
@@ -222,7 +231,7 @@ public class SkipList<E extends Comparable<E>> {
         private final List<Node<E>> backward;
 
         @SuppressWarnings("unchecked")
-        public Node(E value, int height) {
+        Node(E value, int height) {
             this.value = value;
             this.height = height;
 

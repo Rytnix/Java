@@ -2,8 +2,17 @@ package com.thealgorithms.strings;
 
 /**
  * Wikipedia: https://en.wikipedia.org/wiki/Palindrome
+ *
+ * @see com.thealgorithms.stacks.PalindromeWithStack
+ * @see com.thealgorithms.bitmanipulation.BinaryPalindromeCheck
+ * @see com.thealgorithms.maths.LowestBasePalindrome
+ * @see com.thealgorithms.datastructures.lists.PalindromeSinglyLinkedList
+ * @see com.thealgorithms.maths.PalindromePrime
+ * @see com.thealgorithms.maths.PalindromeNumber
  */
-class Palindrome {
+final class Palindrome {
+    private Palindrome() {
+    }
 
     /**
      * Check if a string is palindrome string or not using String Builder

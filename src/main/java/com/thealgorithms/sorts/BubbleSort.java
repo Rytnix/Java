@@ -1,7 +1,5 @@
 package com.thealgorithms.sorts;
 
-import static com.thealgorithms.sorts.SortUtils.*;
-
 /**
  * @author Varun Upadhyay (https://github.com/varunu28)
  * @author Podshivalov Nikita (https://github.com/nikitap492)
@@ -12,6 +10,13 @@ class BubbleSort implements SortAlgorithm {
     /**
      * Implements generic bubble sort algorithm.
      *
+     * Time Complexity:
+     * - Best case: O(n) – array is already sorted.
+     * - Average case: O(n^2)
+     * - Worst case: O(n^2)
+     *
+     * Space Complexity: O(1) – in-place sorting.
+     *
      * @param array the array to be sorted.
      * @param <T> the type of elements in the array.
      * @return the sorted array.
@@ -21,8 +26,8 @@ class BubbleSort implements SortAlgorithm {
         for (int i = 1, size = array.length; i < size; ++i) {
             boolean swapped = false;
             for (int j = 0; j < size - i; ++j) {
-                if (greater(array[j], array[j + 1])) {
-                    swap(array, j, j + 1);
+                if (SortUtils.greater(array[j], array[j + 1])) {
+                    SortUtils.swap(array, j, j + 1);
                     swapped = true;
                 }
             }

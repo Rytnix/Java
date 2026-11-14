@@ -23,7 +23,9 @@ import java.util.Objects;
  * @see <a href="https://en.wikipedia.org/wiki/Verhoeff_algorithm">Wiki.
  * Verhoeff algorithm</a>
  */
-public class Verhoeff {
+public final class Verhoeff {
+    private Verhoeff() {
+    }
 
     /**
      * Table {@code d}. Based on multiplication in the dihedral group D5 and is
@@ -106,7 +108,7 @@ public class Verhoeff {
     }
 
     /**
-     * Calculate check digit for initial digits and add it tho the last
+     * Calculate check digit for initial digits and add it to the last
      * position.
      *
      * @param initialDigits initial value

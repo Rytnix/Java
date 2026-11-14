@@ -9,7 +9,7 @@ package com.thealgorithms.datastructures.queues;
  * give numbers that are bigger, a higher priority. Queues in theory have no
  * fixed size but when using an array implementation it does.
  * <p>
- * Additional contibutions made by: PuneetTri(https://github.com/PuneetTri)
+ * Additional contributions made by: PuneetTri(https://github.com/PuneetTri)
  */
 class PriorityQueue {
 
@@ -30,10 +30,10 @@ class PriorityQueue {
      * Default Constructor
      */
 
-    public PriorityQueue() {
+    PriorityQueue() {
         /* If capacity is not defined, default size of 11 would be used
-         *  capacity=max+1 because we cant access 0th element of PQ, and to
-         *  accomodate (max)th elements we need capacity to be max+1.
+         *  capacity=max+1 because we can't access 0th element of PQ, and to
+         *  accommodate (max)th elements we need capacity to be max+1.
          *  Parent is at position k, child at position (k*2,k*2+1), if we
          *  use position 0 in our queue, its child would be at:
          *  (0*2, 0*2+1) -> (0,0). This is why we start at position 1
@@ -50,7 +50,7 @@ class PriorityQueue {
      * @param size Size of the queue
      */
 
-    public PriorityQueue(int size) {
+    PriorityQueue(int size) {
         maxSize = size + 1;
         queueArray = new int[maxSize];
         nItems = 0;
@@ -85,11 +85,15 @@ class PriorityQueue {
     private void sink(int pos) {
         // Check if node's position is that of parent node
         while (2 * pos <= nItems) {
-            int current = 2 * pos; // Jump to the positon of child node
+            int current = 2 * pos; // Jump to the position of child node
             // Compare both the children for the greater one
-            if (current < nItems && queueArray[current] < queueArray[current + 1]) current++;
+            if (current < nItems && queueArray[current] < queueArray[current + 1]) {
+                current++;
+            }
             // If the parent node is greater, sink operation is complete. Break the loop
-            if (queueArray[pos] >= queueArray[current]) break;
+            if (queueArray[pos] >= queueArray[current]) {
+                break;
+            }
 
             // If not exchange the value of parent with child
             int temp = queueArray[pos];
@@ -123,7 +127,7 @@ class PriorityQueue {
         if (isEmpty()) {
             throw new RuntimeException("Queue is Empty");
         } else {
-            int max = queueArray[1]; // By defintion of our max-heap, value at queueArray[1] pos is
+            int max = queueArray[1]; // By definition of our max-heap, value at queueArray[1] pos is
                                      // the greatest
 
             // Swap max and last element

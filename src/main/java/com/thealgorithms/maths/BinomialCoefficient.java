@@ -1,8 +1,8 @@
 package com.thealgorithms.maths;
 
 /*
- * Java program for Binomial Cofficients
- * Binomial Cofficients: A binomial cofficient C(n,k) gives number ways
+ * Java program for Binomial Coefficients
+ * Binomial Coefficients: A binomial coefficient C(n,k) gives number ways
  * in which k objects can be chosen from n objects.
  * Wikipedia: https://en.wikipedia.org/wiki/Binomial_coefficient
  *
@@ -10,7 +10,9 @@ package com.thealgorithms.maths;
  *
  * */
 
-public class BinomialCoefficient {
+public final class BinomialCoefficient {
+    private BinomialCoefficient() {
+    }
 
     /**
      * This method returns the number of ways in which k objects can be chosen from n objects
@@ -19,9 +21,14 @@ public class BinomialCoefficient {
      * @param numberOfObjects Number of objects to be chosen from total_objects
      * @return number of ways in which no_of_objects objects can be chosen from total_objects
      *     objects
+     * @throws IllegalArgumentException if totalObjects or numberOfObjects is negative
      */
 
     public static int binomialCoefficient(int totalObjects, int numberOfObjects) {
+        if (totalObjects < 0 || numberOfObjects < 0) {
+            throw new IllegalArgumentException("Arguments must be non-negative.");
+        }
+
         // Base Case
         if (numberOfObjects > totalObjects) {
             return 0;

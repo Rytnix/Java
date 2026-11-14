@@ -1,6 +1,7 @@
 package com.thealgorithms.strings;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -58,6 +59,13 @@ class HorspoolSearchTest {
     void testFindFirstInsensitiveNotMatch() {
         int index = HorspoolSearch.findFirstInsensitive("helo", "Hello World");
         assertEquals(-1, index);
+    }
+
+    @Test
+    void testFindFirstInsensitiveWhenCaseDiffersFromPattern() {
+        assertEquals(1, HorspoolSearch.findFirstInsensitive("AB", "xab"));
+        assertEquals(1, HorspoolSearch.findFirstInsensitive("ab", "xAB"));
+        assertEquals(2, HorspoolSearch.findFirstInsensitive("ba", "bbBA"));
     }
 
     @Test
